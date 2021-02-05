@@ -1,0 +1,16 @@
+@Library('mylibrary') _
+
+import com.cleverbuilder.SampleClass
+
+pipeline {
+    agent any
+    stages {
+        stage('Demo') {
+            steps {
+                echo 'Hello, world'
+                sayHello 'Dave'
+
+            }
+        }
+    }
+}
