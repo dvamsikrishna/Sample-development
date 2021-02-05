@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('Demo') {
             steps {
-                echo 'Hello, world'
-                sayHello 'Dave'
+                echo 'Calling Shared lib function'
+                display 'Vamsi Krishna Devayajanam'
 
             }
         }
