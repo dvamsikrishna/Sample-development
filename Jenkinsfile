@@ -2,12 +2,19 @@
 
 pipeline {
     agent any
+    tools {
+        maven 'maven'
+        jdk 'jdk9'
+    }
     stages {
-        stage('Demo') {
+        stage('Build') {
             steps {
-                echo 'Calling Shared lib function'
-                mvnbuild 'mvnbuild'
-
+                mvnbuild "mavenbuild"
+            }
+            post {
+                success {
+                    echo 'Now Archiving'
+                }
             }
         }
     }
