@@ -1,14 +1,12 @@
 @Library('jenkins-shared-library@master') _
 
-import com.cleverbuilder.SampleClass
-
 pipeline {
     agent any
     stages {
         stage('Demo') {
             steps {
                 echo 'Calling Shared lib function'
-                display 'Vamsi Krishna Devayajanam'
+                mvnbuild 'mvnbuild'
 
             }
         }
