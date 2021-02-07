@@ -5,8 +5,6 @@ pipeline{
     }
     stages{
         
-        stage('Maven and Sonar'){
-            
              stage('Mvn Build'){
                 steps{
                     sh 'mvn clean package'
@@ -14,7 +12,5 @@ pipeline{
             }
         
      
-        }
-        
         }
 }
