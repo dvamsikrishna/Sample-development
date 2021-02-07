@@ -1,16 +1,20 @@
-pipeline{
+pipeline {
     agent any
-    options {
-      timeout(30)
+    tools {
+        maven 'maven'
+        jdk 'jdk9'
     }
-    stages{
-        
-             stage('Mvn Build'){
-                steps{
-                    bat 'mvn clean package'
+    stages {
+        stage('Build') {
+            steps {
+                echo 'maven clean'
+                bat ' mvn -f pom.xml clean install'  
+            }
+            post {
+                success {
+                    echo 'Now Archiving'
                 }
             }
-        
-     
         }
+    }
 }
