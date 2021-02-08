@@ -10,7 +10,7 @@ pipeline {
         stage('Gitclone-mvn branch') {
             steps {
                 echo "calling gitclone.groovy function for clone the gir reposiroty"
-                gitclone ("https://github.com/dvamsikrishna/Sample-development.git","mvn-shared-lib")
+                gitclone ("https://github.com/dvamsikrishna/Sample-development.git","maven-shared-lib")
                
             }
             
