@@ -2,6 +2,9 @@
 
 pipeline {
     agent any
+    environment {
+        WORKSPACE1 = "${WORKSPACE}"
+    }
     tools {
         maven 'maven'
         jdk 'jdk9'
