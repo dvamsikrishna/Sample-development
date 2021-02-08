@@ -7,7 +7,7 @@ pipeline {
         jdk 'jdk9'
     }
     stages {
-        stage('Gitclone-mvn branch') {
+        stage('Gitclone-mvn-branch') {
             steps {
                 echo "calling gitclone.groovy function for clone the gir reposiroty"
                 gitclone ("https://github.com/dvamsikrishna/Sample-development.git","maven-shared-lib")
@@ -18,7 +18,7 @@ pipeline {
         stage('Maven-Build') {
             steps {
                 echo "calling the mvnbuild.groovy function for mvn build"
-                mvnbuild "mavenbuild"
+                mvnbuild "Gitclone-mvn-branch"
             }
             
         }
