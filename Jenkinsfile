@@ -7,7 +7,7 @@ pipeline {
     }
     tools {
         maven 'maven'
-        jdk 'jdk9'
+        jdk 'jdk11'
     }
     stages {
         stage('Gitclone-mvn-branch') {
