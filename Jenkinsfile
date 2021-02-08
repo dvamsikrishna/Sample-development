@@ -21,7 +21,7 @@ pipeline {
         stage('Maven-Build') {
             steps {
                 echo "calling the mvnbuild.groovy function for mvn build"
-                mvnbuild "Gitclone-mvn-branch"
+                mvnbuild "git_url"
             }
             
         }
