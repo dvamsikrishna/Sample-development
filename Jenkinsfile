@@ -36,7 +36,7 @@ pipeline {
     stage('NPM-Build') {
             steps {
                 echo "calling npmbuild.groovy function for npm build"
-                npmbuild("gitclone")
+                npmbuild("git_url")
             }
 
 }
