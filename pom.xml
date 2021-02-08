@@ -7,6 +7,13 @@
 	<version>0.0.12</version>
 	<name>my-app</name>
 	<url>http://maven.apache.org</url>
+	
+	<properties>
+               <Artifactory>http://localhost:8081/artifactory</Artifactory>
+               <deploy.repo.url>${Artifactory}</deploy.repo.url>
+               <release.repo.url.Artifactory>${Artifactory}/libs-release</release.repo.url.Artifactory>
+               <snapshot.repo.url.Artifactory>${Artifactory}/libs-snapshot</snapshot.repo.url.Artifactory>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -34,7 +41,7 @@
 		</dependency>
 
 	</dependencies>
-	<distributionManagement>
+	<!--<distributionManagement>
 		 <snapshotRepository>
 		    <id>nexus</id>
 		    <url>http://172.31.15.236:8081/repository/maven-snapshots/</url>
@@ -44,7 +51,35 @@
 		    <id>nexus</id>
 		    <url>http://172.31.15.236:8081/repository/maven-releases/</url>
 		</repository>
-  	</distributionManagement>
+  	</distributionManagement> -->
+	
+	<distributionManagement>
+               <repository>
+                       <id>central</id>
+                       <name>Releases Repo</name>
+                       <url>${release.repo.url.Artifactory}</url>
+               </repository>
+               <snapshotRepository>
+                       <id>snapshots</id>
+                       <name>Snapshots Repo</name>
+                       <url>${snapshot.repo.url.Artifactory}</url>
+               </snapshotRepository>
+        </distributionManagement>
+		
+<pluginRepositories>
+               <pluginRepository>
+                       <id>central</id>
+                       <url>${release.repo.url.Artifactory}</url>
+                       <snapshots>
+                               <enabled>true</enabled>
+                               <checksumPolicy>fail</checksumPolicy>
+                       </snapshots>
+                       <releases>
+                               <enabled>true</enabled>
+                               <checksumPolicy>fail</checksumPolicy>
+                       </releases>
+               </pluginRepository>
+        </pluginRepositories>		
 	
 <build>
     <plugins>
