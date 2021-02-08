@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                mvnbuild "mavenbuild"
+                npmbuild "npmbuild"
             }
             post {
                 success {
