@@ -3,4 +3,17 @@ library identifier: 'Shared-templates@main', retriever: modernSCM(
    remote: 'https://github.com/dvamsikrishna/shared-librery.git',
    credentialsId: ''])
 
-gitclone ("https://github.com/dvamsikrishna/Sample-development.git","npm-shared-lib")
+pipeline {
+    agent any
+
+    stages {
+        stage('Gitclone-mvn-branch') {
+            steps {
+                echo "calling gitclone.groovy function for clone the gir reposiroty"
+                gitclone ("https://github.com/dvamsikrishna/Sample-development.git","maven-shared-lib")
+               
+            }
+            
+}
+}
+}
