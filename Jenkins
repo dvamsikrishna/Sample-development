@@ -1,14 +1,3 @@
 @Library('jenkins-shared-library@main') _
 
-pipeline {
-    agent any
-    stages {
-        stage('Calling_Jenkinsfile') {
-            steps {
-                echo "Calling Jenkinsfile from another Jenkinsfile"
-                Jenkinsfile_sharedlib ("maven", "jdk9")
-            }
-            
-        }
-}
-}
+Jenkinsfile_sharedlib("maven","jdk11")
