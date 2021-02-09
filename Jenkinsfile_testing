@@ -3,4 +3,4 @@ library identifier: 'Shared-templates@main', retriever: modernSCM(
    remote: 'https://github.com/dvamsikrishna/shared-librery.git',
    credentialsId: ''])
 
-Jenkinsfile_sharedlib("maven","jdk11")
+gitclone ("https://github.com/dvamsikrishna/Sample-development.git","npm-shared-lib")
