@@ -2,19 +2,30 @@
 
 pipeline {
     agent any
+    environment {
+        WORKSPACE1 = "${WORKSPACE}"
+    }
     tools {
         maven 'maven'
-        jdk 'jdk9'
+        jdk 'jdk11'
     }
     stages {
+        stage('Gitclone-mvn-branch') {
+            steps {
+                echo "calling gitclone.groovy function for clone the gir reposiroty"
+                gitclone ("https://github.com/dvamsikrishna/Sample-development.git","maven-shared-lib")
+               
+            }
+            
+}
         stage('Maven-Build') {
             steps {
                 echo "calling the mvnbuild.groovy function for mvn build"
-                mvnbuild "mavenbuild"
+                mvnbuild "git_url"
             }
             
         }
-        stage('Gitclone') {
+        stage('Gitclone-npm branch') {
             steps {
                 echo "calling gitclone.groovy function for clone the gir reposiroty"
                 gitclone ("https://github.com/dvamsikrishna/Sample-development.git","npm-shared-lib")
@@ -25,7 +36,7 @@ pipeline {
     stage('NPM-Build') {
             steps {
                 echo "calling npmbuild.groovy function for npm build"
-                npmbuild("gitclone")
+                npmbuild("git_url")
             }
 
 }
