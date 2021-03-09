@@ -44,6 +44,7 @@ pipeline {
             steps {
                 echo "calling email.groovy shared library function for sending an email"
                  email()
+                 cleanWs()
             }
 }
 }
